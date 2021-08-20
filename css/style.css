@@ -92,6 +92,9 @@ body {
 	text-transform: uppercase;
 	color: #635854;
 }
+path.current-floor {
+	opacity: 1;
+}
 .counter-group {
 	display: flex;
 	flex-direction: column;
@@ -104,7 +107,7 @@ body {
 	border: none;
 	cursor: pointer;
 }
-.counter-arrow-down {
+.counter-down {
 	transform: rotateX(180deg);
 }
 .counter {
