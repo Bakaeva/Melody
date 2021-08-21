@@ -3,7 +3,10 @@ $(document).ready(function () {
 	var floorPath = $(".home-image path");
 	var counterUp = $(".counter-up");
 	var counterDown = $(".counter-down");
-	
+	var modal = $(".modal");
+	var modalCloseButton = $(".modal-close-button");
+	var buttonPrimary = $(".button-primary");
+
 	floorPath.on("mouseover", function () {
 		floorPath.removeClass("current-floor");
 		currentFloor = $(this).attr('data-floor');
@@ -12,6 +15,9 @@ $(document).ready(function () {
 	// floorPath.on("left", function () {
   //// toDo: добавить подсветку этажа, на котором находилась мышь, когда её убрали с изображения дома (того этажа, который выведен в .counter)
 	// });
+	floorPath.on("click", toggleModal);
+  modalCloseButton.on("click", toggleModal);
+	buttonPrimary.on("click", toggleModal);
 
 	counterUp.on("click", function () {
 		if (currentFloor < 18) {
@@ -32,4 +38,8 @@ $(document).ready(function () {
 			$(`[data-floor=${useCurrentFloor}]`).toggleClass("current-floor");
 		}
 	});
+
+	function toggleModal() {
+		modal.toggleClass("is-open");
+	}
 });
